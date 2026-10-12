@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "author": "IPOleksenko",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-st-nucleo-c031c6",
+      "id": "nucleo",
+      "top": 0,
+      "left": 300,
+      "attrs": {}
+    },
+    { 
+      "type": "wokwi-lcd1602", 
+      "id": "lcd", 
+      "top": 80, 
+      "left": -50, 
+      "attrs": {} 
+    },
+    { 
+      "type": "wokwi-resistor", 
+      "id": "r1", 
+      "top": 240, 
+      "left": 220, 
+      "attrs": { "value": "220" } 
+    },
+    { 
+    "type": "wokwi-membrane-keypad", 
+    "id": "keypad", 
+    "top": 0, 
+    "left": 640, 
+    "attrs": {
+      "keys": [
+          "1", "2", "3", "+",
+          "4", "5", "6", "-",
+          "7", "8", "9", "*",
+          ".", "0", "=", "/"
+        ]
+      } 
+      },
+      {
+        "type": "wokwi-membrane-keypad",
+        "id": "keypad2",
+        "top": 0,
+        "left": 900,
+        "attrs": {
+          "keys": [
+            "C", "(", ")", "%",
+            "^", "√", "²", "!",
+            "π", "s", "c", "t",
+            "±", "M", "m", "⌫"
+          ]
+        }
+      }
+  ],
+"connections": [
+    [ "nucleo:GND.1", "lcd:VSS", "black", [ "v110", "h-10", "*", "v110" ] ],
+    [ "nucleo:GND.1", "lcd:K", "black", [ "v120", "h-20", "*", "v120" ] ],
+    [ "nucleo:GND.1", "lcd:RW", "black", [ "v130", "h-30", "*", "v130" ] ],
+    [ "nucleo:5V.1", "lcd:VDD", "red", [ "v140", "*", "v140" ] ],
+    [ "nucleo:5V.1", "r1:2", "red" ],
+    [ "r1:1", "lcd:A", "pink", [] ],
+    [ "nucleo:D12", "lcd:RS", "blue", [ "v160", "*", "v160" ] ],
+    [ "nucleo:D11", "lcd:E", "purple", [ "v170", "*", "v170" ] ],
+    [ "nucleo:D10", "lcd:D4", "green", [ "v180", "*", "v180" ] ],
+    [ "nucleo:D9", "lcd:D5", "brown", [ "v190", "*", "v190" ] ],
+    [ "nucleo:D8", "lcd:D6", "gold", [ "v200", "*", "v200" ] ],
+    [ "nucleo:D7", "lcd:D7", "gray", [ "v210", "*", "v210" ] ],
+    [ "nucleo:A3", "keypad:C1", "brown", [ "v110", "*", "v40" ] ],
+    [ "nucleo:A2", "keypad:C2", "gray", [ "v120", "*", "v50" ] ],
+    [ "nucleo:A1", "keypad:C3", "orange", [ "v130", "*", "v60" ] ],
+    [ "nucleo:A0", "keypad:C4", "pink", [ "v140", "*", "v70" ] ],
+    [ "nucleo:PB2", "keypad:R1", "blue", [ "v150", "*", "v80" ] ],
+    [ "nucleo:PA8", "keypad:R2", "green", [ "v160", "*", "v90" ] ],
+    [ "nucleo:PA3", "keypad:R3", "purple", [ "v170", "*", "v100" ] ],
+    [ "nucleo:PB9", "keypad:R4", "gold", [ "v180", "*", "v110" ] ],
+    [ "keypad:C1", "keypad2:C1", "brown", [ "v35", "*", "v35" ] ],
+    [ "keypad:C2", "keypad2:C2", "gray", [ "v35", "*", "v35" ] ],
+    [ "keypad:C3", "keypad2:C3", "orange", [ "v35", "*", "v35" ] ],
+    [ "keypad:C4", "keypad2:C4", "pink", [ "*", "v35" ] ],
+    [ "nucleo:D2", "keypad2:R1", "blue", [ "v400", "*", "v50" ] ],
+    [ "nucleo:D3", "keypad2:R2", "green", [ "v410", "*", "v60" ] ],
+    [ "nucleo:D4", "keypad2:R3", "purple", [ "v420", "*", "v70" ] ],
+    [ "nucleo:D5", "keypad2:R4", "gold", [ "v430", "*", "v80" ] ]
+],
+  "dependencies": {
+
+  }
+}

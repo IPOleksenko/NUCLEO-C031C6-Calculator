@@ -1,0 +1,18 @@
+# PlatformIO build output
+.pio
+
+# Other generated build artifacts
+build/
+*.o
+*.a
+*.elf
+*.hex
+*.bin
+*.map
+
+# Local VS Code state and generated configuration
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
